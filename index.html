@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name=viewport content="width=device-width, initial-scale=1.0, minimum-scale=0.5 maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <link rel="stylesheet" media="all" href="css/base.css" />
+        <link rel="stylesheet" media="only screen and (max-width: 800px)" href="css/phone.css">
+        <title>johan lyheden</title>
+        <script type="text/javascript" src="js/sdk.js"></script>
+        <script type="text/javascript" src="js/jolylib.js"></script>
+    </head>
+    <body>
+        <div class="middlepane">
+        <section>
+            <div class="infosection">
+                <h3>
+                    <span class="expandState" onclick="toggleVisible('bio')" id="biotoggle">-</span>
+                    Bio
+                </h3>
+                <div class="infosectioncontent" id="bio">
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <td>Johan Lyheden</td>
+                        </tr>
+                        <tr>
+                            <th>A/S/L?</th>
+			    <td>Current.year - 1980 / Male / Uppsala - Sweden</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="infosection">
+                <h3>
+                    <span class="expandState" onclick="toggleVisible('professional')" id="professionaltoggle">+</span>
+                    Professional
+                </h3>
+                <div class="infosectioncontent" id="professional" style="display:none">
+                    <p>*NIX System Administrator, Network Administrator, Shell / Puppet / Python / Ruby script coder, Worked in ISP and corporate environments with planning, configuring and maintaining most of the common Internet platform services such as HTTP(S), DNS, SMTP/POP3/IMAP and technologies like L4/L7 load balancers, proxy servers, J2EE application servers, application monitoring (JMX, SNMP, Nagios, Zabbix, etc..), L2 and L3 networking involving VLAN management, STP, routing, worked with bread logistics at one point in time</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="infosection">
+                <h3>
+                    <span class="expandState" onclick="toggleVisible('traits')" id="traitstoggle">+</span>
+                    Traits
+                </h3>
+                <div class="infosectioncontent" id="traits" style="display:none">
+                    <p>Electronic music composer, Sound editor, Web developer, Video game player, Sailor, Movie / TV series and Soccer spectator, Avid party avoider</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="infosection">
+                <h3>
+                    <span class="expandState" onclick="toggleVisible('contactinfo')" id="contactinfotoggle">+</span>
+                    Contact Info
+                </h3>
+                <div class="infosectioncontent" id="contactinfo" style="display:none">
+                    <table>
+                        <tr>
+                            <th>SMTP</th>
+                            <td>johan (at) lyheden (dot) com</td>
+                        </tr>
+                        <tr>
+                            <th>Skype</th>
+                            <td>johan.lyheden</td>
+                        </tr>
+                        <tr>
+                            <th>Social media</th>
+                            <td>
+                                <a href="https://www.facebook.com/johan.lyheden" rel="external">Facebook</a>,
+                                <a href="http://www.linkedin.com/pub/johan-lyheden/16/129/568" rel="external">Linkedin</a>,
+                                <a href="http://twitter.com/jlyheden" rel="external">Twitter</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Gaming</th>
+                            <td>
+                                <a href="http://steamcommunity.com/id/stanley-ezh/" rel="external">Steam</a>, 
+                                <a href="https://live.xbox.com/en-US/Profile?gamertag=Stanley%20EZH" rel="external">XBOX Live</a>, 
+                                <a href="http://eu.playstation.com/psn/profile/stanley_ezh/" rel="external">PSN</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="infosection">
+                <h3>
+                    <span class="expandState" onclick="toggleVisible('inothersites')" id="inothersitestoggle">+</span>
+                    In Other Sites
+                </h3>
+                <div class="infosectioncontent" id="inothersites" style="display:none">
+                    <ul>
+                        <li><a href="https://soundcloud.com/lyheden" rel="external">Soundcloud</a>
+                        <li><a href="https://github.com/jlyheden" rel="external">Github</a>
+                        <li><a href="http://attic.lyheden.com" rel="external">Old website</a>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="infosection">
+                <h3>
+                    <span class="expandState" onclick="toggleVisibleMusic()" id="soundcloudtoggle">+</span>
+                    Music
+                </h3>
+                <div class="infosectioncontent" id="soundcloud" style="display:none"></div>
+            </div>
+        </section>
+        </div>
+    </body>
+</html>
