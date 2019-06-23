@@ -1,0 +1,20 @@
+language: python
+
+env:
+  global:
+    - secure: "PqsJlHCroOyo8VGs/kOOnVMeGFsD0O6OI3JiIXIKUjg3gCkFd1YXqLO3rYNw+RoXTPqN8DJNSU2NnchLG0/wZRYON+iB7kZmg4fiB9FS8fIECWMkBy+sANzNYkODkOTcK7TZof+Pr4BvJZmaiwW/QWn2n3Ydmu2nJ4r3W+SlzYpLk/DF6vddRYPJHThVO0vJqXvBrSu1s4KTwlE2tvJ8HuhLxzezCRK4ztni3Toy6JXoaKUX5izbfGq1rCHrDBuq6GHvknvOjxSl5MvpN5YJU5XakOFG0Z+lrVlpxjFKOw8wJ+qXxgzY8EIx6oQ+oNM7LkZ6Sm+Vom16EsLwK57Vp5h+TYDfkS2Eh5IvBwSbdEugRO8+wHrQEGIUe9+gy5guCnPajcpsJFBomMSo4Z1hnPxQlRy+T2oeipCTWLAEWxkCNbhabFlKaPTolmXyLZShAlysPlqmunvumWoTA8F6tmB/ehy9ve0j8FPyYEf6Tut95K20wUC5mccOf1Z11pWEeW0riXsGnBsHRiMCNxJ+C/HGh/BYunuBODApShcgthyc1Hw9nY2UO+XNPqj2W5mN6cQWPhfcA8P1+fHCo9cwcE36kzY4FP4VskfmoiKEvTSSWJ1DkTZg8etAyTJGCKNDh7A2vC7Hg/U/KXN1nTlOpZPZuTP2K8IpmE5p36au9tw="
+    - secure: "byyVTwVIcV+tkDGOnOjgA9MrfQUI646g56vIp4JqUO8dwcQaSCd3sSxvVKxsN5F/aRG8L0NQ1l7yzgpf1KQKUi/TjBRCiaSCaDNO362j+zVzsrUwiyjHt9JA/ghRFvGmwDWpWIPAA3vn1uLeLAh61CqINQaDHZue98g3ATJU18rTcD4kl78TlLX9mZZuQuk/qXkhr8P/oXuxNyosQ+RqSpCo0GYYGqy2bAaunIA37awSE2dp3VayMhmZIfDR1vzU8xuOxj2D9uCN/aVUm+l0PrLqbN0mW1gdWreB6sd11uSkZNGlaaTe21ZWVJ5A2wMpLyFQNm0G6CTsUthdOlQOkzgIT+EJrQSs112jGkDUxF5rhC+eWAJxlLfIHV1OsffdzAUU6piCwd5h7GfKzOw4Gpv1MfrGWsogJlJYQKfTEe0Nn9taNIfZcfMLQZSV55sODxMFA549W/zfWRRLrnn7IjmO4qpB0CLlG3bRzfw5t8dMU/BH5u6NJ0SbYiRKHKF6gehbA0VmM+NMbRDYTBBSIM9AYvsu6AlrnHSdDL0kbovq0Wo+G2QOjKfcOdqmNeLFNIfbHbHi2Q7wo+ntWpRw783gl3pS66/UfAIkUffbQ23rjJKbk361e0uY8DmY7NzsK1+WeQahH2lAykcGW8QAEtoCDYwLdSZmTxeD3TyiwUc="
+
+python:
+  - '3.7'
+
+install:
+  - pip install b2
+
+script: 'true'
+
+deploy:
+  provider: script
+  script: bash scripts/deploy.sh production $TRAVIS_TAG
+  on:
+    tags: true
