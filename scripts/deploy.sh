@@ -36,5 +36,5 @@ b2 authorize-account $B2_KEY_ID $B2_APPLICATION_KEY 2>&1 >/dev/null
 b2 sync \
     --delete \
     --replaceNewer \
-    --excludeRegex '(\.git*)|(\.travis\.yml)|(scripts/)' \
+    --excludeRegex '(README\.md)|(\.git*)|(\.travis\.yml)|(scripts/)' \
     . $BUCKET
