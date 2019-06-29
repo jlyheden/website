@@ -1,4 +1,3 @@
-/* Is this possible to do more elegantly if one cares about order? */
 function toggleVisibleMusic() {
     var elspan = document.getElementById('soundcloudtoggle');
     var el = document.getElementById('soundcloud');
@@ -8,33 +7,17 @@ function toggleVisibleMusic() {
         SC.initialize({
             client_id: '0b1d3a71e298ee7a93c2483a4bf1dde4'
         });
-        SC.get('/tracks', { q: 'lyheden', order: 'created_at' }, 
+        SC.get('/tracks', { q: 'lyheden', order: 'created_at' }).then(
             function(tracks) {
-                function processTracks(allTracks) {
-                    function findIndexByKeyValue(obj, key, value) {
-                        for (var i = 0; i < obj.length; i++) {
-                            if (obj[i][key] == value) {
-                                return i;
-                            }
-                        }
-                        return null;
-                    }
-                    var sorted_array = [];
-                    for (var i = 0; i < tracks.length; i++) {
-                        sorted_array[i] = allTracks[findIndexByKeyValue(allTracks,'title',tracks[i].title + ' by Lyheden')].html;
-                    }
-                    el.innerHTML = sorted_array.join('<hr>');
-                }
-                var callbacksOutstanding = tracks.length;
-                var allTracks = [];
-                var callback = function(track) {
-                    allTracks.push(track);
-                    if (--callbacksOutstanding === 0) {
-                        processTracks(allTracks);
-                    }
-                };
                 for (var i = 0; i < tracks.length; i++) {
-                    SC.oEmbed(tracks[i].permalink_url, { auto_play: false, iframe: true }, callback);
+                    var trElement = el.appendChild(document.createElement('div'));
+                    el.appendChild(document.createElement('br'));
+                    SC.oEmbed(tracks[i].permalink_url, {
+                        auto_play: false,
+                        show_comments: false,
+                        maxheight: 166,
+                        element: trElement
+                    });
                 }
             }
         );
