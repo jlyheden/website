@@ -19,10 +19,10 @@ jobs:
         pip install b2
     - name: Deploy to B2
       env:
-        B2_KEY_ID: ${{ secrets.B2_KEY_ID }}
+        B2_APPLICATION_KEY_ID: ${{ secrets.B2_KEY_ID }}
         B2_APPLICATION_KEY: ${{ secrets.B2_APPLICATION_KEY }}
         B2_BUCKET_NAME: ${{ secrets.B2_BUCKET_NAME }}
       run: |
-        export B2_KEY_ID B2_APPLICATION_KEY B2_BUCKET_NAME
+        export B2_APPLICATION_KEY_ID B2_APPLICATION_KEY B2_BUCKET_NAME
         bash scripts/deploy.sh production ${{ github.sha }}
 
