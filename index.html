@@ -8,6 +8,25 @@
         <link rel="stylesheet" media="all" href="css/base.css" />
         <link rel="stylesheet" media="only screen and (max-width: 800px)" href="css/phone.css">
         <title>johan lyheden</title>
+        <script>
+          function toggleVisible(id) {
+            var elspan = document.getElementById(id + "toggle");
+            var el = document.getElementById(id);
+            el.style.display = (el.style.display != 'none' ? 'none' : '' );
+            elspan.innerHTML = (el.style.display != 'none' ? '-' : '+' );
+          };
+          window.onload = function() {
+            if (!document.getElementsByTagName) return false;
+            var links = document.getElementsByTagName("a");
+            for (var i=0; i<links.length; i++) {
+              if (links[i].getAttribute("rel") == "external") {
+                links[i].onclick = function() {
+                  return !window.open(this.href);
+                };
+              }
+            };
+          };
+        </script>
     </head>
     <body>
         <div class="middlepane">
