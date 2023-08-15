@@ -3,38 +3,38 @@
 set -e
 
 usage() {
-    echo "Usage: $0 environment tag"
+    echo "Usage: $0 ref"
     exit 1
 }
 
-if [ -z "$B2_APPLICATION_KEY" ] || [ -z "$B2_KEY_ID" ]; then
-    echo "Missing B2_APPLICATION_KEY or B2_KEY_ID env vars"
+if [ -z "$B2_APPLICATION_KEY" ]; then
+    echo "Missing B2_APPLICATION_KEY env var"
     exit 1
 fi
 
-if [ -z "$2" ]; then
+if [ -z "$B2_KEY_ID" ]; then
+    echo "Missing B2_KEY_ID env var"
+    exit 1
+fi
+
+if [ -z "$B2_BUCKET_NAME" ]; then
+    echo "Missing B2_BUCKET_NAME env var"
+    exit 1
+fi
+
+if [ -z "$1" ]; then
     usage
 fi
 
-case "$1" in
-    production)
-        BUCKET="b2://lyheden-site/"
-        ;;
-    test)
-        echo "no test site yet"
-        exit 1
-        ;;
-    *)
-    usage
-esac
+REF=$1
 
-TAG=$2
+echo $REF > version.txt
 
-echo $TAG > version.txt
+BUCKET_URL="b2://${B2_BUCKET_NAME}/"
 
 b2 authorize-account $B2_KEY_ID $B2_APPLICATION_KEY 2>&1 >/dev/null
 b2 sync \
     --delete \
     --replaceNewer \
-    --excludeRegex '(README\.md)|(\.git*)|(\.travis\.yml)|(scripts/)' \
-    . $BUCKET
+    --excludeRegex '(README\.md)|(\.git*)|(scripts/)' \
+    . $BUCKET_URL
