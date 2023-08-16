@@ -24,5 +24,5 @@ jobs:
         B2_BUCKET_NAME: ${{ secrets.B2_BUCKET_NAME }}
       run: |
         export B2_APPLICATION_KEY_ID B2_APPLICATION_KEY B2_BUCKET_NAME
-        bash scripts/deploy.sh production ${{ github.sha }}
+        bash scripts/deploy.sh ${{ github.sha }}
 

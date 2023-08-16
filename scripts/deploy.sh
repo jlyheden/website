@@ -25,6 +25,5 @@ BUCKET_URL="b2://${B2_BUCKET_NAME}/"
 b2 authorize-account 2>&1 >/dev/null
 b2 sync \
     --delete \
-    --replaceNewer \
     --excludeRegex '(README\.md)|(\.git*)|(scripts/)' \
     . $BUCKET_URL
